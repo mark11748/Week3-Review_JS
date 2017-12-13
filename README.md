@@ -10,7 +10,7 @@ _Mark Woodward_
 INPUT:   `program starts`  
 OUTPUT:  `display list consisting of recorded animals and corresponding edit buttons`
 
-* "listNew() : display set of input fields needed to construct an entity; ends with CREATE and CANCEL buttons to either push a new animal onto the list or abort."  
+* "listAdd() : display set of input fields needed to construct an entity; ends with CREATE and CANCEL buttons to either push a new animal onto the list or abort."  
 INPUT:  `NEW_ANIMAL clicked >> fields set >> ADD clicked || NEW_ANIMAL clicked >> CANCEL clicked`  
 OUTPUT:  `ADD - create and add a new animal to the lis || CANCEL - abort by hiding the NEW_ANIMAL form`
 
