@@ -4,14 +4,13 @@ import { Animal } from './animal.model'
   selector:'<listAll></listAll>',
   template:
   `<div><ul>
-    <li *ngFor="let animal in childRoster" (click)="edit(animal)">{{animal.name}}</li>
+    <li *ngFor="let animal of childRoster">{{animal.name}}</li>
   </ul></div>`
 })
-export class listComponent {
+export class ListComponent {
   @Input() childRoster: Animal[];
-  @Output() editRequest = new EventEmitter();
-
-  edit(animal:Animal) {
-      this.editRequest.emit(animal);
-  }
+  // @Output() editRequest = new EventEmitter();
+  // edit(animal:Animal) {
+  //     this.editRequest.emit(animal);
+  // }
 }
