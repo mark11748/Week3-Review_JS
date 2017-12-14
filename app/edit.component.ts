@@ -1,7 +1,7 @@
 // import { Component, Input, Output, EventEmitter } from '@angular/core';
 // import { Animal } from './animal.model'
 // @Component({
-//   selector:'<listEdit></listEdit>',
+//   selector:'<editAnimal></editAnimal>',
 //   template:
 //   `<div *ngIf="focus">
 //     <input type="text"  [(ngModel)]="animalToEdit.name">
