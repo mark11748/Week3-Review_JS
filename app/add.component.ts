@@ -4,13 +4,14 @@ import { Animal } from './animal.model'
 @Component({
   selector:'newAnimal',
   template:`<div>
-    <input #name>
-    <input type="number" min="0" #age>
+    <input #name placeholder="NAME"><br>
+    <input type="number" min="0" #age placeholder="AGE"><br>
+    <label>Gender: </label>
     <select #gender>
       <option [value]="M"> Male </option>
       <option [value]="F"> Female </option>
-    </select>
-    <input #species>
+    </select><br>
+    <input #species placeholder="SPECIES"><br>
 
     <button (click)="SubmitNewAnimal(name.value,age.value,gender.value,species.value);
                      name.value='';

@@ -12,7 +12,9 @@ import { AddComponent } from './add.component'
   <br>
   <newAnimal *ngIf="showAddForm" (sendNew) = "addNew($event);toggleAddForm();" ></newAnimal>
 
+
   `
+  // <editAnimal *ngIf="showEditForm" (sendEdit) = "amend($event);toggleEditForm();" ></editAnimal>
   // <editAnimal *ngIf="showEditForm = true;"></editAnimal>
   // (editRequest)="editList($event)
   // <listAdd  (addSender)   =""            ></listAdd>
