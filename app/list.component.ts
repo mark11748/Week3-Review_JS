@@ -6,7 +6,13 @@ import { AddComponent } from './add.component'
   template:
   `<div>
     <ul>
-      <li *ngFor="let animal of childRoster">{{animal.name}}</li>
+      <div>
+        <li *ngFor="let animal of childRoster">{{animal.name}}
+          <p>
+            <button (click)=editRequest.emit(animal)>EDIT</button> <button (click)=rmvRequest.emit(animal)>REMOVE</button>
+          <p>
+        </li>
+      </div>
     </ul>
     <button (click)="addRequest.emit()">ADD</button>
   </div>`
@@ -14,6 +20,10 @@ import { AddComponent } from './add.component'
 export class ListComponent {
   @Input()  childRoster: Animal[];
   @Output() addRequest = new EventEmitter();
+  @Output() rmvRequest = new EventEmitter();
+  @Output() editRequest = new EventEmitter();
+
+
   // @Output() editRequest = new EventEmitter();
   // edit(animal:Animal) {
   //     this.editRequest.emit(animal);
