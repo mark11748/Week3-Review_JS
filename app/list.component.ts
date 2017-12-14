@@ -4,10 +4,17 @@ import { AddComponent } from './add.component'
 @Component({
   selector:'<listAll></listAll>',
   template:
+  //parseInt fails in template -> 'x'*1 casts number
   `<div>
+    <label>FILTER: </label>
+    <select (change)="changeFilter($event.target.value)">
+    <option [value]="0">ALL</option>
+    <option [value]="1">MALE</option>
+    <option [value]="2">FEMALE</option>
+    </select>
     <ul>
       <div>
-        <li *ngFor="let animal of childRoster">{{animal.name}}
+        <li *ngFor="let animal of childRoster | filter:filterType">{{animal.name}}
           <p>
             <button (click)=editRequest.emit(animal)>EDIT</button> <button (click)=rmvRequest.emit(animal)>REMOVE</button>
           <p>
@@ -22,6 +29,11 @@ export class ListComponent {
   @Output() addRequest = new EventEmitter();
   @Output() rmvRequest = new EventEmitter();
   @Output() editRequest = new EventEmitter();
+  filterType:Number = 0;
+
+  changeFilter(type:string){
+    this.filterType = parseInt(type);
+  }
 
 
   // @Output() editRequest = new EventEmitter();
