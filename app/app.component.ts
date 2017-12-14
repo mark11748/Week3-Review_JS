@@ -8,7 +8,10 @@ import { AddComponent } from './add.component'
   template: `
   <h1>My Angular App</h1>
   <br>
-  <listAll  [childRoster] = "masterRoster" (addRequest)="toggleAddForm()"></listAll>
+  <listAll  [childRoster] = "masterRoster"
+            (addRequest)="toggleAddForm()"
+            (rmvRequest)="rmvEntry($event)"
+            ></listAll>
   <br>
   <newAnimal *ngIf="showAddForm" (sendNew) = "addNew($event);toggleAddForm();" ></newAnimal>
 
@@ -37,6 +40,11 @@ export class AppComponent {
 
   addNew(newAnimal:Animal){
     this.masterRoster.push(newAnimal);
+  }
+  editEntry(selectedAnimal:Animal){}
+  rmvEntry(selectedAnimal:Animal){
+    let targetIndex = this.masterRoster.indexOf(selectedAnimal);
+    this.masterRoster.splice(targetIndex,1);
   }
   // focus : Animal = null;
   // editList(selectedAnimal:Animal){
