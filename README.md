@@ -2,8 +2,12 @@
 _Mark Woodward_
 
 **DESCRIPTION:**  
+manage a list of animals and display them using an optional filter  
 
-**INSTALLATION:**  
+**INSTALLATION:**
+* download from github  
+* run the following commands to install dependancies : `npm install; bower install;`
+* run the following to run in your browser: `gulp serve`
 
 **SPECS:**  
 * "listAll() : program displays list of all animals in zoo with EDIT_ANIMAL and NEW_ANIMAL controls"  
@@ -18,9 +22,9 @@ OUTPUT:  `ADD - create and add a new animal to the lis || CANCEL - abort by hidi
 INPUT:  `EDIT_ANIMAL clicked >> fields set >> AMEND clicked || EDIT_ANIMAL clicked >> CANCEL clicked`  
 OUTPUT:  `AMEND - set the new values to the selected animal || CANCEL - abort by hiding the EDIT form`
 
-* "pipeSort : a group of radio buttons"
-INPUT:  `the list of animals and the value of the currently selected radio button`  
-OUTPUT:  `a sorted(sort type determined by button value) list of animals`
+* "pipeSort : a drop-down menu"
+INPUT:  `the desired option`  
+OUTPUT:  `a sorted(sort type determined by option value) list of animals`
 
 **BUGS:**  
 
