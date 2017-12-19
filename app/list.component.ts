@@ -9,8 +9,8 @@ import { AddComponent } from './add.component'
     <label>FILTER: </label>
     <select (change)="changeFilter($event.target.value)">
     <option [value]="0">ALL</option>
-    <option [value]="1">MALE</option>
-    <option [value]="2">FEMALE</option>
+    <option [value]="1">YOUNG</option>
+    <option [value]="2">OLD</option>
     </select>
     <ul>
       <div>

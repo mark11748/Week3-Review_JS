@@ -6,47 +6,48 @@ import { Animal } from './animal.model';
 })
 export class FilterPipe implements PipeTransform {
   transform(oldRoster:Animal[],type:number) {
-    let newRoster:Animal[] = [];
-    oldRoster.forEach(animal => {
-      // switch (type)
-      // {
-      //   case 1:
-      //     if(animal.gender==="M"){ newRoster.push(animal); }
-      //     break;
-      //   case 2:
-      //     if(animal.gender==="F"){ newRoster.push(animal); }
-      //     break;
-      // }
-      switch (type)
-      {
-        //youngest first
-        case 1:
-          let lowest = 0;
-          while (oldRoster.length>0) {
-            oldRoster.forEach((x,i) => {
-              if (oldRoster[lowest].age>x.age)
-              { lowest = i; }
-            });
-            newRoster.push(oldRoster.splice(lowest,1)[0]);
-          }
-          return newRoster;
-          //oldest first
-        case 2:
-          let highest = 0;
-          while (oldRoster.length>0) {
-            oldRoster.forEach((x,i) => {
-              if (oldRoster[highest].age<x.age)
-              { highest = i; }
-            });
-            newRoster.push(oldRoster.splice(highest,1)[0]);
-          }
-          return newRoster;
-          //unsorted
-        default:
-          return oldRoster;
-      }
-    });
-    // if(newRoster.length!=0){return newRoster;}
-    // else{return oldRoster;}
+    // let newRoster:Animal[] = oldRoster;
+    let outputRoster:Animal[] = [];
+    let target:number=0;
+    let checked:number[]=[];
+    //youngest first
+    if(type==1){
+      oldRoster.forEach((x)=>{
+        if(x.age<5){outputRoster.push(x)}
+      });
+      return outputRoster;
+    //   for(let i=0 ; i<newRoster.length ; i++)
+    //   {
+    //     newRoster.forEach((x,xIndex)=>{
+    //       if (newRoster[target].age>x.age && checked.indexOf(xIndex)<0) //if younger than target and not yet pushed
+    //       { target=xIndex; }
+    //     });
+    //     outputRoster.push(newRoster[target]);
+    //     checked.push(target);
+    //     console.log(target);
+    //   }
+    //   return outputRoster;
+    }
+    //newest first
+    if(type==2){
+      oldRoster.forEach((x)=>{
+        if(x.age>5){outputRoster.push(x)}
+      });
+      return outputRoster;
+  //     for(let i=0 ; i<newRoster.length ; i++)
+  //     {
+  //       newRoster.forEach((x,xIndex)=>{
+  //         if (newRoster[target].age<x.age && checked.indexOf(xIndex)<0) //if older than target and not yet pushed
+  //         { target=xIndex; }
+  //       });
+  //       outputRoster.push(newRoster[target]);
+  //       checked.push(target);
+  //       console.log(target);
+  //     }
+  //     return outputRoster;
+  //   }
+  //   return oldRoster;
+    }
+    return oldRoster;
   }
 }
